@@ -9,7 +9,7 @@ export const Container = styled.header`
   margin: 50px 0;
 `;
 
-//utilizando um componente como um link nativo do React
+// utilizando um componente como um link nativo do React
 export const Cart = styled(Link)`
   display: flex;
   align-items: center;
