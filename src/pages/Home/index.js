@@ -12,6 +12,7 @@ function Home() {
           alt="Tênis"
         />
         <strong>Tênis nike</strong>
+        <span>R$279,99</span>
         <button type="button">
           <div>
             <MdShoppingCart size={16} color="#FFF" /> 3
@@ -25,6 +26,7 @@ function Home() {
           alt="Tênis"
         />
         <strong>Tênis nike</strong>
+        <span>R$279,99</span>
         <button type="button">
           <div>
             <MdShoppingCart size={16} color="#FFF" /> 3
@@ -38,6 +40,7 @@ function Home() {
           alt="Tênis"
         />
         <strong>Tênis nike</strong>
+        <span>R$279,99</span>
         <button type="button">
           <div>
             <MdShoppingCart size={16} color="#FFF" /> 3
@@ -51,6 +54,7 @@ function Home() {
           alt="Tênis"
         />
         <strong>Tênis nike</strong>
+        <span>R$279,99</span>
         <button type="button">
           <div>
             <MdShoppingCart size={16} color="#FFF" /> 3
@@ -64,6 +68,7 @@ function Home() {
           alt="Tênis"
         />
         <strong>Tênis nike</strong>
+        <span>R$279,99</span>
         <button type="button">
           <div>
             <MdShoppingCart size={16} color="#FFF" /> 3
@@ -77,6 +82,7 @@ function Home() {
           alt="Tênis"
         />
         <strong>Tênis nike</strong>
+        <span>R$279,99</span>
         <button type="button">
           <div>
             <MdShoppingCart size={16} color="#FFF" /> 3
