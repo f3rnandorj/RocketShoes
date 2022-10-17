@@ -4,6 +4,7 @@ import {
   MdAddCircleOutline,
   MdDelete,
 } from 'react-icons/md';
+
 import { Container, ProductTable, Total } from './styles';
 
 export default function Cart() {
