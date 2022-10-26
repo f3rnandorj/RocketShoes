@@ -1,12 +1,57 @@
-import { call, put, all, takeLatest } from 'redux-saga/effects';
+import { call, put, all, takeLatest, select } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 
 import api from '../../../services/api';
-import { addToCartSuccess } from './actions';
+import { formatPrice } from '../../../util/format';
+
+import { addToCartSuccess, updateAmountSuccess } from './actions';
 
 function* addToCart({ id }) {
-  const response = yield call(api.get, `/products/${id}`);
+  const productExists = yield select(state =>
+    state.cart.find(p => p.id === id),
+  );
 
-  yield put(addToCartSuccess(response.data)); // dispara uma action do redux
+  const stock = yield call(api.get, `/stock/${id}`);
+
+  const stockAmount = stock.data.amount;
+  const currentAmount = productExists ? productExists.amount : 0;
+
+  const amount = currentAmount + 1;
+
+  if (amount > stockAmount) {
+    toast.error('Quantidade insuficiente em estoque!');
+    return;
+  }
+
+  if (productExists) {
+    yield put(updateAmountSuccess(id, amount)); // put serve para disparar uma action
+  } else {
+    const response = yield call(api.get, `/products/${id}`);
+
+    const data = {
+      ...response.data,
+      amount: 1,
+      priceFormatted: formatPrice(response.data.price),
+    };
+    yield put(addToCartSuccess(data)); // dispara uma action do redux
+  }
 }
 
-export default all([takeLatest('@cart/ADD_REQUEST', addToCart)]); // primeiro paramentro e qual ação queremos ouvir e o segundo qual função queremos disparar
+function* updateAmount({ id, amount }) {
+  if (amount <= 0) return;
+
+  const stock = yield call(api.get, `/stock/${id}`);
+  const stockAmount = stock.data.amount;
+
+  if (amount > stockAmount) {
+    toast.error('Quantidade insuficiente em estoque!');
+    return;
+  }
+
+  yield put(updateAmountSuccess(id, amount));
+}
+
+export default all([
+  takeLatest('@cart/ADD_REQUEST', addToCart),
+  takeLatest('@cart/UPDATE_AMOUNT_REQUEST', updateAmount),
+]); // primeiro paramentro e qual ação queremos ouvir e o segundo qual função queremos disparar
