@@ -31,7 +31,7 @@ Front-end
 2° Abra um novo terminal e digite "*json-server db.json -p 3333*" para iniciar a resposta com o nosso banco de dados criado pelo json-server.
 
 ------------------------------------------------------------------
-Video demonstrativo
+*Video demonstrativo*
 
 https://user-images.githubusercontent.com/108803562/198148955-dd80dc7a-5142-44c6-a159-9ec0342b795b.mp4
 ------------------------------------------------------------------
