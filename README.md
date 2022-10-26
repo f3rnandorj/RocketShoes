@@ -11,16 +11,17 @@ RocketShoes é um e-commerce básico, cuja objetivo e passar os conceitos básic
 ### `Tecnologias`
 
 Front-end 
-    axios
-    immer
-    polished
-    react-icons
-    react-redux
-    react-router-dom
-    react-scripts
-    react-toastify
-    redux-saga
-    styled-components
+    
+    -axios
+    -immer    
+    -polished    
+    -react-icons    
+    -react-redux    
+    -react-router-dom    
+    -react-scripts    
+    -react-toastify
+    -redux-saga
+    -styled-components
 
 ### `Como iniciar?`
 
